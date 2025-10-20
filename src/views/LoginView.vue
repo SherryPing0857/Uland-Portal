@@ -1,18 +1,27 @@
 <script setup>
 import { ref } from "vue"
+import { useRouter } from "vue-router"
 
 const idNumber = ref("")
 const password = ref("")
 const errorMessage = ref("")
+const router = useRouter()
 
 const login = () => {
   errorMessage.value = ""
+
   if (!idNumber.value || !password.value) {
     errorMessage.value = "請填寫身分證與密碼"
     return
   }
-  console.log("登入資訊:", { idNumber: idNumber.value, password: password.value })
-  alert("登入成功（範例）")
+
+  // 模擬驗證邏輯：身分證與密碼相同代表成功
+  if (idNumber.value === password.value) {
+    alert("登入成功！")
+    router.push("/news") 
+  } else {
+    errorMessage.value = "身分證或密碼錯誤"
+  }
 }
 </script>
 

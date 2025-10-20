@@ -1,0 +1,12 @@
+[
+  { "id": 1, "department": "hr", "type": "人事系統", "title": "HR 系統登入問題？", "content": "請聯絡 IT 部門。" },
+  { "id": 2, "department": "hr", "type": "流程問題", "title": "請假流程？", "content": "填寫請假單，提交主管審核。" },
+  { "id": 3, "department": "sales", "type": "CRM 系統", "title": "CRM 系統無法登入？", "content": "檢查帳號或聯絡 IT。" },
+  { "id": 4, "department": "sales", "type": "客戶資料", "title": "客戶資料更新？", "content": "登入 CRM 更新客戶資料。" },
+  { "id": 5, "department": "rd", "type": "開發環境", "title": "研發系統報錯？", "content": "檢查程式碼與環境設定。" },
+  { "id": 6, "department": "rd", "type": "Git 操作", "title": "Git 操作問題？", "content": "遵循 Git 流程提交。" },
+  { "id": 7, "department": "customer", "type": "訂單系統", "title": "訂單修改流程？", "content": "透過後台系統修改訂單。" },
+  { "id": 8, "department": "customer", "type": "帳號問題", "title": "帳號被鎖定？", "content": "聯絡客服主管解鎖。" },
+  { "id": 9, "department": "planning", "type": "企劃系統", "title": "企劃系統崩潰？", "content": "重新啟動系統或聯絡 IT。" },
+  { "id": 10, "department": "planning", "type": "報告流程", "title": "報告範本？", "content": "下載官方報告範本填寫。" }
+]

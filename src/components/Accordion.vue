@@ -1,58 +1,59 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps } from 'vue'
 
-// FAQ 資料陣列
-const faqs = ref([
-  {
-    id: 1,
-    title: "Accordion Item #1",
-    content:
-      "Placeholder content for this accordion, which is intended to demonstrate the .accordion-flush class. This is the first item’s accordion body."
-  },
-  {
-    id: 2,
-    title: "Accordion Item #2",
-    content:
-      "Placeholder content for this accordion, which is intended to demonstrate the .accordion-flush class. This is the second item’s accordion body. Let’s imagine this being filled with some actual content."
-  },
-  {
-    id: 3,
-    title: "Accordion Item #3",
-    content:
-      "Placeholder content for this accordion, which is intended to demonstrate the .accordion-flush class. This is the third item’s accordion body. Nothing more exciting happening here in terms of content, but just filling up the space."
-  }
-]);
+const props = defineProps({
+  items: { type: Array, default: () => [] },
+})
+
+const activeId = ref(null)
 </script>
 
 <template>
   <div class="accordion accordion-flush" id="accordionFlushExample">
     <div
-      class="accordion-item"
-      v-for="faq in faqs"
-      :key="faq.id"
+      class="accordion-wrapper"
+      v-for="item in items"
+      :key="item.id"
     >
-      <h2 class="accordion-header" :id="'heading' + faq.id">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          :data-bs-target="'#collapse' + faq.id"
-          aria-expanded="false"
-          :aria-controls="'collapse' + faq.id"
+      <div class="accordion-item">
+        <h2 class="accordion-header" :id="'heading' + item.id">
+          <button
+            class="accordion-button"
+            :class="{ collapsed: activeId !== item.id }"
+            type="button"
+            data-bs-toggle="collapse"
+            :data-bs-target="'#collapse' + item.id"
+            aria-expanded="false"
+            :aria-controls="'collapse' + item.id"
+            @click="activeId = activeId === item.id ? null : item.id"
+          >
+            {{ item.title }}
+          </button>
+        </h2>
+        <div
+          :id="'collapse' + item.id"
+          class="accordion-collapse collapse"
+          :class="{ show: activeId === item.id }"
+          :aria-labelledby="'heading' + item.id"
+          data-bs-parent="#accordionFlushExample"
         >
-          {{ faq.title }}
-        </button>
-      </h2>
-      <div
-        :id="'collapse' + faq.id"
-        class="accordion-collapse collapse"
-        :aria-labelledby="'heading' + faq.id"
-        data-bs-parent="#accordionFlushExample"
-      >
-        <div class="accordion-body">
-          {{ faq.content }}
+          <div class="accordion-body">
+            {{ item.content }}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.accordion-wrapper {
+  margin-bottom: 0.75rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.accordion-button {
+  font-weight: 500;
+}
+</style>

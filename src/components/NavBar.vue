@@ -14,70 +14,73 @@ const navItems = [
 
 // 判斷是否為當前頁面
 const isActive = (path) => {
-  if (path === "/") {
-    return route.path === "/"; // 嚴格匹配首頁
-  }
-  return route.path.startsWith(path); // 其他路由可匹配子路由
+  if (path === "/") return route.path === "/";
+  return route.path.startsWith(path);
 };
 </script>
 
 <template>
-  <header class="d-flex justify-content-center py-3">
-    <ul class="nav nav-pills">
-      <li class="nav-item" v-for="item in navItems" :key="item.path">
-        <RouterLink
-          :to="item.path"
-          class="nav-link"
-          :class="{ active: isActive(item.path) }"
-        >
-          {{ item.name }}
-        </RouterLink>
-      </li>
-    </ul>
-  </header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+    <div class="container">
+      <!-- Logo 或網站名稱 -->
+      <RouterLink to="/" class="navbar-brand">公司名稱</RouterLink>
+
+      <!-- 漢堡按鈕 -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- 導覽列連結 -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" v-for="item in navItems" :key="item.path">
+            <RouterLink
+              :to="item.path"
+              class="nav-link"
+              :class="{ active: isActive(item.path) }"
+            >
+              {{ item.name }}
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
-header {
-  background: linear-gradient(90deg, #0a0f25, #1a1f3e); /* 深藍夜空漸層 */
-  padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
+.navbar {
+  background-color: #fafafa; /* 文青柔和背景 */
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .nav-link {
-  color: #0ff; /* 青色文字 */
+  color: #555;
   font-weight: 500;
-  background: linear-gradient(145deg, #1a1f3e, #0d1326); /* 深色漸層按鈕 */
-  border-radius: 1rem;
-  padding: 0.5rem 1.2rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+  transition: all 0.2s ease;
 }
 
 .nav-link:hover {
-  background: linear-gradient(145deg, #0ff, #00c8ff); /* hover 青色漸層 */
-  color: #000;
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 4px 12px rgba(0, 255, 255, 0.3);
+  color: #1a3d7c;
 }
 
 .nav-link.active {
-  background: linear-gradient(
-    145deg,
-    #6fca77ff,
-    #00bfff
-  ); /* active 按鈕亮藍色漸層 */
-  color: #fff;
+  color: #1a3d7c;
   font-weight: 600;
-  box-shadow: 0 0 15px rgba(31, 59, 59, 0.6), 0 4px 12px rgba(0, 255, 255, 0.3);
+}
+
+.navbar-collapse {
+  background-color: #fafafa;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
 }
 </style>

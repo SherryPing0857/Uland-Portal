@@ -1,17 +1,16 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView, useRoute } from "vue-router";
 import NavBar from "./components/NavBar.vue";
+
+const route = useRoute();
 </script>
 
 <template>
-  <header>
+  <header v-if="route.path !== '/'">
     <NavBar />
   </header>
 
   <div class="container py-4">
-    <router-view />
+    <RouterView />
   </div>
 </template>
-
-<style scoped>
-</style>

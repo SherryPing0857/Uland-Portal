@@ -27,7 +27,7 @@ const forms = ref([
 <style scoped>
 
 .form-item:hover {
-  background: #dfecffff;  ;
+  background: #f1f1f1ff;  ;
   color: #000;
 }
 
