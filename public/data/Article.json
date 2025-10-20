@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "title": "新進人員訓練",
+    "date": "2025-10-20",
+    "content": [
+      "了解公司文化、制度與作業流程，快速融入團隊。",
+      "掌握基本工作工具與流程，建立良好工作習慣。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "員工手冊.pdf", "url": "/files/file1.pdf" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "系統操作教學",
+    "date": "2025-10-21",
+    "content": [
+      "熟悉公司內部 ERP 與 CRM 系統操作流程。",
+      "學會新增資料、查詢報表及處理異常流程。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "系統操作手冊.pdf", "url": "/files/file2.pdf" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "產品知識課程",
+    "date": "2025-10-22",
+    "content": [
+      "深入掌握公司產品功能與服務流程。",
+      "學會解答客戶常見問題與使用技巧。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "產品說明書.pdf", "url": "/files/file3.pdf" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "顧客服務與溝通技巧",
+    "date": "2025-10-23",
+    "content": [
+      "學習有效的客戶溝通方式。",
+      "掌握問題處理流程，提高客戶滿意度。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "客服指南.pdf", "url": "/files/file4.pdf" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "專案管理課程",
+    "date": "2025-10-24",
+    "content": [
+      "學習專案規劃、資源分配及進度控制方法。",
+      "提升團隊協作與專案執行能力。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "專案範例.pdf", "url": "/files/file5.pdf" }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "業務談判技巧",
+    "date": "2025-10-25",
+    "content": [
+      "掌握業務談判策略與技巧。",
+      "提高成交率與客戶滿意度。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "談判技巧.pdf", "url": "/files/file6.pdf" }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "工地安全與規範",
+    "date": "2025-10-26",
+    "content": [
+      "學習工務部現場安全管理及施工規範。",
+      "降低意外發生風險，保障人員安全。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "安全規範.pdf", "url": "/files/file7.pdf" }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "創意思維與企劃能力",
+    "date": "2025-10-27",
+    "content": [
+      "提升企劃部創意思考能力。",
+      "學會設計高效活動方案與專案策劃。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "企劃範例.pdf", "url": "/files/file8.pdf" }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "研發技術分享",
+    "date": "2025-10-28",
+    "content": [
+      "定期研發技術交流與分享。",
+      "掌握最新技術與開發工具。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "技術手冊.pdf", "url": "/files/file9.pdf" }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "跨部門協作訓練",
+    "date": "2025-10-29",
+    "content": [
+      "學習跨部門協作與溝通技巧。",
+      "促進團隊整合與資源運用。"
+    ],
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "attachments": [
+      { "name": "協作指南.pdf", "url": "/files/file10.pdf" }
+    ]
+  }
+]

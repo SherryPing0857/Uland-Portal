@@ -22,7 +22,7 @@ const filteredFaqs = computed(() => {
 
 <template>
   <div class="container py-4">
-    <h1 class="mb-3">部門指南 - 常見問題</h1>
+    <h1 class="mb-3">部門指南</h1>
     <FilterDropdown v-model:filter="filter" />
     <Accordion :items="filteredFaqs" :openFirst="true" />
   </div>

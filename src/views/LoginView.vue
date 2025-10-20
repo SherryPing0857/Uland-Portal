@@ -28,7 +28,7 @@ const login = () => {
 <template>
   <div class="d-flex justify-content-center login-page">
     <div class="card p-4 shadow-sm login-card">
-      <h2 class="mb-4 text-center">員工入口網站</h2>
+      <h4 class="mb-4 text-center fw-bold">捷一資訊&優能家 員工知識庫</h4>
       <p class="text-muted text-center mb-3">
         使用身分證登入系統，密碼同樣為身分證號碼
       </p>

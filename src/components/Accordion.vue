@@ -55,5 +55,6 @@ const activeId = ref(null)
 
 .accordion-button {
   font-weight: 500;
+  background-color: #f7f8f8ff;
 }
 </style>

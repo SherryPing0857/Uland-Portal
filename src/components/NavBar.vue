@@ -1,9 +1,10 @@
 <script setup>
-import { useRoute } from "vue-router";
+import { ref, watch } from "vue";
+import { useRoute, RouterLink } from "vue-router";
 
 const route = useRoute();
+const isOpen = ref(false); // 導覽列是否展開
 
-// 導航列資料
 const navItems = [
   { name: "公告資訊", path: "/news" },
   { name: "部門指南", path: "/faq" },
@@ -12,40 +13,48 @@ const navItems = [
   { name: "公司介紹", path: "/intro" },
 ];
 
-// 判斷是否為當前頁面
-const isActive = (path) => {
-  if (path === "/") return route.path === "/";
-  return route.path.startsWith(path);
+const isActive = (path) => route.path.startsWith(path);
+
+// 點選連結時關閉選單
+const closeNav = () => {
+  isOpen.value = false;
 };
+
+// 漢堡按鈕切換
+const toggleNav = () => {
+  isOpen.value = !isOpen.value;
+};
+
+// 監聽路由變化，自動收合
+watch(() => route.path, () => {
+  closeNav();
+});
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary py-3">
     <div class="container">
-      <!-- Logo 或網站名稱 -->
-      <RouterLink to="/" class="navbar-brand">公司名稱</RouterLink>
+      <RouterLink to="/" class="navbar-brand text-white">捷一資訊&優能家 員工知識庫</RouterLink>
 
       <!-- 漢堡按鈕 -->
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
+        @click="toggleNav"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- 導覽列連結 -->
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- 導覽列 -->
+      <div :class="['collapse navbar-collapse', { show: isOpen }]">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item" v-for="item in navItems" :key="item.path">
             <RouterLink
               :to="item.path"
               class="nav-link"
               :class="{ active: isActive(item.path) }"
+              @click="closeNav"
             >
               {{ item.name }}
             </RouterLink>
@@ -58,29 +67,36 @@ const isActive = (path) => {
 
 <style scoped>
 .navbar {
-  background-color: #fafafa; /* 文青柔和背景 */
-  border-bottom: 1px solid #e0e0e0;
+  background-color: #3160a7 !important; 
 }
 
 .nav-link {
-  color: #555;
+  color: #ffffff !important; 
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #1a3d7c;
+  color: #ffdd57 !important;
 }
 
+
 .nav-link.active {
-  color: #1a3d7c;
+  color: #ffdd57 !important;
   font-weight: 600;
 }
 
 .navbar-collapse {
-  background-color: #fafafa;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.navbar-toggler {
+  border-color: #ffffff;
 }
 </style>
