@@ -7,7 +7,7 @@ const emit = defineEmits(["update:activeTab"])
 </script>
 
 <template>
-  <div class="btn-group mb-3">
+  <div class="btn-group">
     <button
       v-for="tab in tabs"
       :key="tab"

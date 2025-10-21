@@ -1,8 +1,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 const formId = route.params.id;
 
 const form = ref({ name: "載入中...", content: "" });
@@ -34,10 +35,23 @@ onBeforeUnmount(() => {
   document.removeEventListener("selectstart", preventDefault);
   document.removeEventListener("keydown", preventCtrlKeys);
 });
+
+// 返回上一頁
+const goBack = () => {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    router.push("/news"); // 沒有上一頁時導回首頁
+  }
+};
 </script>
 
 <template>
   <div class="container py-4">
+    <button class="btn btn-outline-primary mb-3" @click="goBack">
+      ← 返回上一頁
+    </button>
+
     <h1>{{ form.name }}（唯讀）</h1>
     <div class="form-content mt-3">
       {{ form.content }}
@@ -50,6 +64,6 @@ onBeforeUnmount(() => {
   border-top: 1px solid #dbdbdbff; 
   padding-top: 1rem;
   white-space: pre-wrap;
-  user-select: none; /* 只禁選取內容文字 */
+  user-select: none; /* 禁止文字選取 */
 }
 </style>

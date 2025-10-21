@@ -2,13 +2,20 @@
 import { ref, computed, onMounted } from "vue"
 import InfoList from "../components/InfoList.vue"
 import PageSwitcher from "../components/PageSwitcher.vue"
+import TabSwitcher from "../components/TabSwitcher.vue"
 
-const tabs = ["部門消息", "會議記錄"]
-const activeTab = ref(tabs[0])
+// Tab 名稱（靜態陣列）
+const allTabs = ["部門消息", "會議紀錄"]
 
+// 控制哪些 tab 顯示
+const visibleTabs = ref(["部門消息"]) // 初始只顯示部門消息
+const activeTab = ref("部門消息")
+
+// 分頁設定
 const currentPage = ref(1)
 const pageSize = 10
 
+// 資料來源
 const departmentNews = ref([])
 const meetingRecords = ref([])
 
@@ -26,23 +33,33 @@ onMounted(async () => {
   }
 })
 
-// 目前頁面要顯示的資料
+// 計算當前頁顯示的資料
 const currentItems = computed(() => {
   const data = activeTab.value === "部門消息" ? departmentNews.value : meetingRecords.value
   const start = (currentPage.value - 1) * pageSize
   return data.slice(start, start + pageSize)
 })
 
-// 總頁數
+// 計算總頁數
 const totalPages = computed(() => {
   const data = activeTab.value === "部門消息" ? departmentNews.value : meetingRecords.value
   return Math.ceil(data.length / pageSize)
 })
 
-// 切換 Tab
+// Tab 切換事件
 const onTabChange = (tab) => {
   activeTab.value = tab
   currentPage.value = 1
+}
+
+// Toggle 顯示/隱藏會議紀錄
+const toggleMeetingTab = () => {
+  if (visibleTabs.value.includes("會議紀錄")) {
+    visibleTabs.value = visibleTabs.value.filter(t => t !== "會議紀錄")
+    if (activeTab.value === "會議紀錄") activeTab.value = "部門消息"
+  } else {
+    visibleTabs.value.push("會議紀錄")
+  }
 }
 </script>
 
@@ -50,20 +67,21 @@ const onTabChange = (tab) => {
   <div class="container py-4">
     <h1 class="mb-3">公告資訊</h1>
 
-    <!-- Tabs -->
-    <div class="btn-group mb-3">
-      <button
-        v-for="tab in tabs"
-        :key="tab"
-        class="btn"
-        :class="{ 'btn-primary': activeTab === tab, 'btn-outline-primary': activeTab !== tab }"
-        @click="onTabChange(tab)"
-      >
-        {{ tab }}
+    <!-- 按鈕 + Tab 同一行 -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <!-- TabSwitcher 靠左 -->
+      <TabSwitcher 
+        :tabs="visibleTabs" 
+        :activeTab="activeTab" 
+        @update:activeTab="onTabChange" 
+      />
+      <!-- 按鈕靠右 -->
+      <button class="btn btn-success" @click="toggleMeetingTab">
+        {{ visibleTabs.includes("會議紀錄") ? "隱藏會議紀錄" : "開放會議紀錄" }}
       </button>
     </div>
 
-    <!-- 資訊列表，根據 Tab 傳 type -->
+    <!-- 資訊列表 -->
     <InfoList 
       :items="currentItems" 
       :type="activeTab === '部門消息' ? 'news' : 'meeting'" 
@@ -73,7 +91,3 @@ const onTabChange = (tab) => {
     <PageSwitcher v-model="currentPage" :totalPages="totalPages" />
   </div>
 </template>
-
-<style scoped>
-.btn-group .btn { min-width: 120px; }
-</style>
