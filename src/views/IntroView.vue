@@ -9,8 +9,8 @@ const activeTab = ref(tabs[0])
 </script>
 
 <template>
-  <div class="container py-5">
-  <h1>公司介紹</h1>
+  <div class="container py-4">
+  <h1 class="mb-3">公司介紹</h1>
     <div class="text-start mb-4">
       <TabSwitcher
         :tabs="tabs"

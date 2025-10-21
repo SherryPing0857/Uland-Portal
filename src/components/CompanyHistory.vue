@@ -10,8 +10,8 @@ const historyEvents = [
 </script>
 
 <template>
-  <div class="container py-5">
-    <h2 class="text-center fw-bold mb-5">公司歷程</h2>
+  <div class="container py-3">
+    <h2 class="text-center fw-bold mb-3">公司歷程</h2>
 
     <div class="timeline position-relative">
       <div
@@ -66,52 +66,52 @@ const historyEvents = [
   z-index: 1;
   border-left: 4px solid #0d6efd;
   background-color: #fff;
+  padding: 1.5rem;
+  width: 450px; 
+  box-sizing: border-box;
 }
 
 .timeline-item-left .timeline-content {
   border-left: none;
   border-right: 4px solid #0d6efd;
+  margin-left: auto; 
 }
 
-/* 時間點 */
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  width: 18px;
-  height: 18px;
-  background-color: #0d6efd;
-  border-radius: 50%;
-  z-index: 2;
-}
-.timeline-item-left::before {
-  right: -9px;
-}
-.timeline-item-right::before {
-  left: -9px;
+.timeline-item-right .timeline-content {
+  margin-right: auto; 
 }
 
-/* 手機版 — 改為直式 */
+/* 手機版 — 直式排列 */
 @media (max-width: 767.98px) {
-  .timeline-line {
-    left: 8px;
-    transform: none;
-  }
-
   .timeline-item {
     width: 100%;
     margin-left: 0 !important;
-    padding-left: 2rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     text-align: left;
   }
 
-  .timeline-item::before {
-    left: 0;
-  }
-
   .timeline-content {
+    width: 100% !important;  
+    max-width: 100% !important;
     border-left: 4px solid #0d6efd !important;
     border-right: none !important;
+    margin: 0 !important;
+    text-align: left;
+  }
+
+  .timeline-line {
+    display: none;  /* 手機版隱藏中線 */
+  }
+
+  .timeline-item::before {
+    left: 0 !important;  /* 時間點圓點靠左 */
+    right: auto !important;
   }
 }
+
+
+
+
+
 </style>

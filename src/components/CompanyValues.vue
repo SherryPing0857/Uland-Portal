@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="container py-5">
+  <div class="container py-3">
     <div class="row g-4 align-items-stretch">
       <!-- 左側圖片 -->
       <div class="col-md-6">
