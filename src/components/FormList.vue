@@ -1,30 +1,31 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const forms = ref([]); 
 
-// 表單資料陣列
-const forms = ref([
-  { id: 1, name: "請假申請表", link: "/files/leave.pdf", type: "download" },
-  { id: 2, name: "報銷單", link: "/files/reimbursement.pdf", type: "download" },
-  { id: 3, name: "加班申請表", link: "/form/3", type: "view" },
-  { id: 4, name: "設備申請表", link: "/form/4", type: "view" },
-  { id: 5, name: "出差申請表", link: "/files/travel.pdf", type: "download" },
-]);
+onMounted(async () => {
+  try {
+    const res = await fetch("/data/FormList.json"); // public 下的路徑從根目錄開始
+    if (!res.ok) throw new Error("無法載入表單清單");
+    forms.value = await res.json();
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 const handleClick = (form) => {
   if (form.type === "view") {
     router.push({ name: "FormReadOnly", params: { id: form.id } });
   } else if (form.type === "download") {
     const link = document.createElement("a");
-    link.href = form.link;      // 檔案路徑
-    link.download = form.name;  // 下載檔名
+    link.href = form.link;
+    link.download = form.name;
     link.click();
   }
 };
 </script>
-
 <template>
   <ul class="list-group">
     <li
@@ -68,3 +69,4 @@ const handleClick = (form) => {
   background-color: #157347;
 }
 </style>
+

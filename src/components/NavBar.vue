@@ -12,7 +12,7 @@ const navItems = [
   { name: "各項表單", path: "/forms" },
   { name: "公司介紹", path: "/intro" },
   { name: "員工回饋", path: "/feedback" },
-  { name: "帳戶設定", path: "/setting" },
+  { name: "我的帳戶", path: "/setting" },
 ];
 
 const isActive = (path) => route.path.startsWith(path);

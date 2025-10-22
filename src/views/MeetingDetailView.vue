@@ -1,8 +1,6 @@
 <template>
   <div class="container py-4" v-if="record">
-    <button class="btn btn-outline-primary mb-3" @click="goBack">
-      ← 返回上一頁
-    </button>
+    <BackButton class="mb-3" />
 
     <h2>{{ record.title }}</h2>
     <p class="text-muted">{{ record.date }}</p>
@@ -13,10 +11,10 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
+import BackButton from "../components/BackButton.vue"; // 請確認路徑正確
 
 const route = useRoute();
-const router = useRouter();
 const record = ref(null);
 
 onMounted(async () => {
@@ -24,13 +22,4 @@ onMounted(async () => {
   const data = await res.json();
   record.value = data.find((m) => m.id === Number(route.params.id));
 });
-
-// 返回上一頁
-const goBack = () => {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    router.push("/news"); // 沒有上一頁時回首頁
-  }
-};
 </script>

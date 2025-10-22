@@ -16,7 +16,7 @@ const preventCtrlKeys = (e) => {
 
 onMounted(async () => {
   try {
-    const res = await fetch("/data/FormDetail.json");
+    const res = await fetch("/data/FormReadOnly.json");
     const formsData = await res.json();
     form.value = formsData[formId] || { name: "未知表單", content: "" };
   } catch (err) {
