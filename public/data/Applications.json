@@ -1,6 +1,6 @@
 [
-  { "id": 1, "name": "請假申請單", "status": "已送出", "uploadedBy": "王小明", "date": "2025-10-20" },
+  { "id": 1, "name": "請假申請單", "status": "審核中", "uploadedBy": "王小明", "date": "2025-10-20" },
   { "id": 2, "name": "報銷申請單", "status": "審核中", "uploadedBy": "李小華", "date": "2025-10-21" },
   { "id": 3, "name": "加班申請單", "status": "已核准", "uploadedBy": "陳大同", "date": "2025-10-22" },
-  { "id": 4, "name": "出差申請單", "status": "已送出", "uploadedBy": "林小美", "date": "2025-10-19" }
+  { "id": 4, "name": "出差申請單", "status": "已退回", "uploadedBy": "林小美", "date": "2025-10-19" }
 ]

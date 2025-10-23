@@ -26,6 +26,7 @@
     <PageSwitcher
       v-model="currentPage"
       :totalPages="totalPages"
+      class="mt-4"
     />
   </div>
 </template>
@@ -40,10 +41,10 @@ const selectedDepartment = ref("全部");
 const trainingsData = ref([]);
 
 // 每頁顯示卡片數量 & 當前頁碼
-const pageSize = 8; // 優化：每頁只渲染 8 張
+const pageSize = 8;
 const currentPage = ref(1);
 
-// 載入 JSON
+// 載入 JSON（一次 fetch）
 onMounted(async () => {
   const res = await fetch("/data/Training.json");
   trainingsData.value = await res.json();
@@ -68,28 +69,25 @@ const totalPages = computed(() =>
   Math.ceil(filteredTrainings.value.length / pageSize)
 );
 
-// 切換部門時自動跳回第一頁
+// 切換部門時回到第一頁
 watch(selectedDepartment, () => {
   currentPage.value = 1;
 });
 </script>
 
 <style scoped>
-/* Card 文字截斷 */
 .card-text {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* 顯示 3 行文字 */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Card 圖片懶加載優化 */
 .card-img-top {
   height: 200px;
   object-fit: cover;
 }
 
-/* 分頁按鈕美化 */
 .pagination .page-link {
   cursor: pointer;
 }

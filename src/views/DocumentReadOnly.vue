@@ -4,11 +4,11 @@ import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
-const formId = route.params.id;
+const docId = route.params.id; // 文件 id
 
-const form = ref({ name: "載入中...", content: "" });
+const documentData = ref({ name: "載入中...", content: "" });
 
-// 事件處理函數
+// 禁止右鍵、文字選取、Ctrl+P/S/C
 const preventDefault = (e) => e.preventDefault();
 const preventCtrlKeys = (e) => {
   if (e.ctrlKey && ["p", "s", "c"].includes(e.key.toLowerCase())) e.preventDefault();
@@ -16,15 +16,15 @@ const preventCtrlKeys = (e) => {
 
 onMounted(async () => {
   try {
-    const res = await fetch("/data/FormReadOnly.json");
-    const formsData = await res.json();
-    form.value = formsData[formId] || { name: "未知表單", content: "" };
+    const res = await fetch("/data/DocumentList.json");
+    const docs = await res.json();
+    // 找到對應 id 的文件
+    documentData.value = docs.find(d => d.id == docId) || { name: "未知文件", content: "" };
   } catch (err) {
-    console.error("載入表單失敗", err);
-    form.value = { name: "錯誤", content: "無法取得資料" };
+    console.error("載入文件失敗", err);
+    documentData.value = { name: "錯誤", content: "無法取得資料" };
   }
 
-  // 禁止右鍵、文字選取、Ctrl+P/S/C
   document.addEventListener("contextmenu", preventDefault);
   document.addEventListener("selectstart", preventDefault);
   document.addEventListener("keydown", preventCtrlKeys);
@@ -36,7 +36,6 @@ onBeforeUnmount(() => {
   document.removeEventListener("keydown", preventCtrlKeys);
 });
 
-// 返回上一頁
 const goBack = () => {
   if (window.history.length > 1) {
     window.history.back();
@@ -52,9 +51,9 @@ const goBack = () => {
       ← 返回上一頁
     </button>
 
-    <h1>{{ form.name }}（唯讀）</h1>
+    <h1>{{ documentData.name }}（唯讀）</h1>
     <div class="form-content mt-3">
-      {{ form.content }}
+      {{ documentData.content || "此文件為下載型，無內容預覽。" }}
     </div>
   </div>
 </template>

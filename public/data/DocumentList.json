@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "公司年度報告",
+    "link": "/files/annual_report.pdf",
+    "type": "download",
+    "content": "公司年度報告全文內容示例……"
+  },
+  {
+    "id": 2,
+    "name": "會議紀錄",
+    "link": "/files/meeting_minutes.pdf",
+    "type": "download",
+    "content": "會議紀錄全文內容示例……"
+  },
+  {
+    "id": 3,
+    "name": "政策公告",
+    "link": "/files/policy_notice.pdf",
+    "type": "download",
+    "content": "政策公告全文內容示例……"
+  }
+]

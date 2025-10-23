@@ -1,93 +1,61 @@
 <script setup>
-import { ref, defineProps, defineEmits, watch } from "vue";
+import { useRouter } from "vue-router";
+import FilterBar from "./FilterBar.vue";
 
 const props = defineProps({
-  startDate: { type: String, default: "" },
-  endDate: { type: String, default: "" },
-  status: { type: String, default: "" },
-  statusOptions: { type: Array, default: () => ["已送出", "審核中", "已核准"] }
+  items: Array,
+  startDate: String,
+  endDate: String,
+  status: String,
 });
 
-const emit = defineEmits(["update:startDate", "update:endDate", "update:status", "upload"]);
+const emits = defineEmits(["update:filter"]);
 
-const start = ref(props.startDate);
-const end = ref(props.endDate);
-const selectedStatus = ref(props.status);
+const router = useRouter();
 
-watch(start, val => emit("update:startDate", val));
-watch(end, val => emit("update:endDate", val));
-watch(selectedStatus, val => emit("update:status", val));
+const handleView = (app) => router.push({ name: "ApplicationDetail", params: { id: app.id } });
+const handleUpload = () => router.push({ name: "ApplicationUpload" });
 
-const toggleStatus = (status) => {
-  selectedStatus.value = selectedStatus.value === status ? "" : status;
-};
-
-// 清空篩選
-const clearFilters = () => {
-  start.value = "";
-  end.value = "";
-  selectedStatus.value = "";
-};
+const updateFilter = (val) => emits("update:filter", val);
 </script>
 
 <template>
-  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-3 p-3 border rounded shadow-sm bg-light">
-    <!-- 左側篩選 -->
-    <div class="d-flex flex-wrap align-items-center gap-2">
-      <!-- 日期篩選 -->
-      <label class="mb-0 fw-semibold me-1">日期:</label>
-      <input type="date" class="form-control form-control-sm filter-input" v-model="start" />
-      <span class="mx-1">~</span>
-      <input type="date" class="form-control form-control-sm filter-input" v-model="end" />
+  <FilterBar
+    :startDate="startDate"
+    :endDate="endDate"
+    :status="status"
+    @update:startDate="updateFilter({ startDate: $event })"
+    @update:endDate="updateFilter({ endDate: $event })"
+    @update:status="updateFilter({ status: $event })"
+    @upload="handleUpload"
+  />
 
-      <!-- 狀態按鈕 -->
-      <label class="mb-0 fw-semibold ms-3 me-1">狀態:</label>
-      <div class="btn-group">
-        <button
-          v-for="opt in statusOptions"
-          :key="opt"
-          type="button"
-          class="btn btn-sm"
-          :class="selectedStatus === opt ? 'btn-primary' : 'btn-outline-primary'"
-          @click="toggleStatus(opt)"
-        >
-          {{ opt }}
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" @click="clearFilters">
-          清空篩選
-        </button>
-      </div>
-    </div>
-
-    <!-- 右側上傳資料按鈕 -->
-    <button class="btn btn-success btn-sm mt-2 mt-md-0" @click="$emit('upload')">
-      上傳資料
-    </button>
+  <div class="table-responsive" v-if="items && items.length">
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-primary">
+        <tr>
+          <th>ID</th>
+          <th>申請名稱</th>
+          <th>日期</th>
+          <th>狀態</th>
+          <th>上傳人</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="app in items" :key="app.id">
+          <td>{{ app.id }}</td>
+          <td>{{ app.name }}</td>
+          <td>{{ app.date }}</td>
+          <td>{{ app.status }}</td>
+          <td>{{ app.uploadedBy }}</td>
+          <td>
+            <button class="btn btn-success btn-sm" @click="handleView(app)">檢視</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <p v-else class="text-center text-muted py-3">沒有符合條件的申請單</p>
 </template>
-
-<style scoped>
-.filter-input {
-  width: 150px;
-  max-width: 100%;
-}
-
-/* 手機響應式調整 */
-@media (max-width: 575px) {
-  .d-flex.flex-column.flex-md-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .btn-group {
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-  .btn-group .btn {
-    margin-bottom: 0.25rem;
-  }
-  .btn-success {
-    width: 100%;
-  }
-}
-</style>

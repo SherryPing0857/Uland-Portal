@@ -1,7 +1,26 @@
 [
-  { "id": 1, "name": "請假申請表", "link": "/files/leave.pdf", "type": "download" },
-  { "id": 2, "name": "報銷單", "link": "/files/reimbursement.pdf", "type": "download" },
-  { "id": 3, "name": "加班申請表", "link": "/form/3", "type": "view" },
-  { "id": 4, "name": "設備申請表", "link": "/form/4", "type": "view" },
-  { "id": 5, "name": "出差申請表", "link": "/files/travel.pdf", "type": "download" }
+  {
+    "id": 1,
+    "name": "社區光纖網路建置服務協議書（高雄公版）",
+    "link": "https://docs.google.com/document/d/1aW-eqW-FbG4WnhwBOPbK7cywifs40Qld/export?format=docx",
+    "type": "download"
+  },
+  {
+    "id": 2,
+    "name": "社區光纖網路建置服務協議書（台南公版）",
+    "link": "https://docs.google.com/document/d/10ZUm3AmYlrMTaQ2-HWKgR8tT2PKdIxJH/export?format=docx",
+    "type": "download"
+  },
+    {
+    "id": 3,
+    "name": "社區光纖網路建置服務協議書（台中公版）",
+    "link": "https://docs.google.com/document/d/18BoTdAEzQ81_0X3nJ_-hLZ5JX2oLqnOH/export?format=docx",
+    "type": "download"
+  },
+    {
+    "id": 4,
+    "name": "社區公設Wi-Fi熱點建置服務協議書（公版）",
+    "link": "https://docs.google.com/document/d/16DblwgnD75bK4YI55SJ7wIrOuJRo-9nd/export?format=docx",
+    "type": "download"
+  }
 ]

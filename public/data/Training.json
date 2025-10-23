@@ -3,7 +3,7 @@
     "id": 1,
     "title": "新進人員訓練",
     "text": "了解公司文化、制度與作業流程，快速融入團隊。",
-    "img": "https://images.pexels.com/photos/7441079/pexels-photo-7441079.jpeg",
+    "img": "https://images.pexels.com/photos/7441079/pexels-photo-7441079.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["業務部", "客服部", "企劃部", "研發部"],
     "link": "/article/1"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "title": "系統操作教學",
     "text": "熟悉公司內部 ERP 與 CRM 系統操作流程，提高工作效率。",
-    "img": "https://images.pexels.com/photos/7988667/pexels-photo-7988667.jpeg",
+    "img": "https://images.pexels.com/photos/7988667/pexels-photo-7988667.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["工務部", "研發部"],
     "link": "/article/2"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "title": "產品知識課程",
     "text": "深入掌握公司產品功能與服務流程，能有效解答客戶疑問。",
-    "img": "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg",
+    "img": "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["業務部", "客服部"],
     "link": "/article/3"
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "title": "顧客服務與溝通技巧",
     "text": "學習與客戶有效溝通，提升問題處理能力與滿意度。",
-    "img": "https://images.pexels.com/photos/8761559/pexels-photo-8761559.jpeg",
+    "img": "https://images.pexels.com/photos/8761559/pexels-photo-8761559.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["客服部"],
     "link": "/article/4"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "title": "專案管理課程",
     "text": "學習專案規劃、資源分配及進度控制方法，提高團隊協作效率。",
-    "img": "https://images.pexels.com/photos/6899395/pexels-photo-6899395.jpeg",
+    "img": "https://images.pexels.com/photos/6899395/pexels-photo-6899395.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["企劃部", "研發部"],
     "link": "/article/5"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "title": "業務談判技巧",
     "text": "掌握業務談判策略與技巧，提升成交率與客戶滿意度。",
-    "img": "https://images.pexels.com/photos/7441079/pexels-photo-7441079.jpeg",
+    "img": "https://images.pexels.com/photos/7441079/pexels-photo-7441079.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["業務部"],
     "link": "/article/6"
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "title": "工地安全與規範",
     "text": "學習工務部現場安全管理及施工規範，降低意外發生風險。",
-    "img": "https://images.pexels.com/photos/7988667/pexels-photo-7988667.jpeg",
+    "img": "https://images.pexels.com/photos/7988667/pexels-photo-7988667.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["工務部"],
     "link": "/article/7"
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "title": "創意思維與企劃能力",
     "text": "提升企劃部創意思考與專案策劃能力，設計高效活動方案。",
-    "img": "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg",
+    "img": "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["企劃部"],
     "link": "/article/8"
   },
@@ -67,7 +67,7 @@
     "id": 9,
     "title": "研發技術分享",
     "text": "定期研發技術交流與分享，掌握最新技術與開發工具。",
-    "img": "https://images.pexels.com/photos/8761559/pexels-photo-8761559.jpeg",
+    "img": "https://images.pexels.com/photos/8761559/pexels-photo-8761559.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["研發部"],
     "link": "/article/9"
   },
@@ -75,7 +75,7 @@
     "id": 10,
     "title": "跨部門協作訓練",
     "text": "學習跨部門協作與溝通技巧，促進團隊整合與資源運用。",
-    "img": "https://images.pexels.com/photos/6899395/pexels-photo-6899395.jpeg",
+    "img": "https://images.pexels.com/photos/6899395/pexels-photo-6899395.jpeg?auto=compress&cs=tinysrgb&h=400&w=600&fm=webp",
     "departments": ["業務部", "客服部", "工務部", "企劃部", "研發部"],
     "link": "/article/10"
   }

@@ -1,19 +1,18 @@
 <script setup>
-import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-// 假資料
-const documents = ref([
-  { id: 1, name: "公司年度報告", link: "/files/annual_report.pdf", type: "download" },
-  { id: 2, name: "會議紀錄", link: "/files/meeting_minutes.pdf", type: "download" },
-  { id: 3, name: "政策公告", link: "/files/policy_notice.pdf", type: "download" },
-]);
+const props = defineProps({
+  items: {
+    type: Array,
+    default: () => []
+  }
+});
 
-// 點擊下載
-const handleDownload = (doc) => {
-  const link = document.createElement("a");
-  link.href = doc.link;
-  link.download = doc.name;
-  link.click();
+const router = useRouter();
+
+const handleView = (doc) => {
+  if (!doc.id) return;
+  router.push({ name: "DocumentReadOnly", params: { id: doc.id } });
 };
 </script>
 
@@ -29,38 +28,20 @@ const handleDownload = (doc) => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="doc in documents" :key="doc.id">
+        <tr v-for="doc in items" :key="doc.id">
           <td>{{ doc.id }}</td>
           <td>{{ doc.name }}</td>
           <td>{{ doc.type }}</td>
           <td>
-            <button class="btn btn-primary btn-sm" @click="handleDownload(doc)">
-              下載
+            <button class="btn btn-success btn-sm" @click="handleView(doc)">
+              檢視
             </button>
           </td>
         </tr>
+        <tr v-if="items.length === 0">
+          <td colspan="4" class="text-center p-3">沒有公文</td>
+        </tr>
       </tbody>
     </table>
-    <div v-if="documents.length === 0" class="text-center p-3">
-      沒有公文
-    </div>
   </div>
 </template>
-
-<style scoped>
-.document-list table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.document-list th,
-.document-list td {
-  padding: 0.5rem;
-  text-align: left;
-}
-
-.btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.85rem;
-}
-</style>
