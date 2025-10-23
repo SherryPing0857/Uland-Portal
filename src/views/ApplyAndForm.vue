@@ -9,7 +9,7 @@ import PageSwitcher from "../components/PageSwitcher.vue";
 // Tab 控制
 const currentTab = ref("forms");
 const currentPage = ref(1);
-const pageSize = 5;
+const pageSize = 10;
 
 // 篩選條件（僅 ApplicationList 用）
 const startDate = ref("");
@@ -71,18 +71,16 @@ const totalPages = computed(() => {
   return Math.ceil(length / pageSize);
 });
 
-// Tab 切換回第一頁
+// Tab 切換回第一頁，且重置 Application 篩選條件
 const onTabChange = (tab) => {
   currentTab.value = tab;
   currentPage.value = 1;
-};
 
-// 更新 Application 篩選條件
-const updateFilter = (val) => {
-  if (val.startDate !== undefined) startDate.value = val.startDate;
-  if (val.endDate !== undefined) endDate.value = val.endDate;
-  if (val.status !== undefined) status.value = val.status;
-  currentPage.value = 1; // 篩選後回第一頁
+  if (tab === "applications") {
+    startDate.value = "";
+    endDate.value = "";
+    status.value = "全部";
+  }
 };
 
 // Tab 設定
@@ -104,6 +102,14 @@ const toggleApplicationTab = () => {
   } else {
     visibleTabs.value.push(tabs.find(t => t.key === "applications"));
   }
+};
+
+// 更新 Application 篩選條件
+const updateFilter = (val) => {
+  if (val.startDate !== undefined) startDate.value = val.startDate;
+  if (val.endDate !== undefined) endDate.value = val.endDate;
+  if (val.status !== undefined) status.value = val.status;
+  currentPage.value = 1;
 };
 </script>
 

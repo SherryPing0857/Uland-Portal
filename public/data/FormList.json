@@ -1,26 +1,81 @@
 [
   {
     "id": 1,
-    "name": "社區光纖網路建置服務協議書（高雄公版）",
+    "name": "社區光纖網路建置服務協議書(高雄公版)",
     "link": "https://docs.google.com/document/d/1aW-eqW-FbG4WnhwBOPbK7cywifs40Qld/export?format=docx",
-    "type": "download"
+    "type": "download",
+    "fileType": ".DOCX"
   },
   {
     "id": 2,
-    "name": "社區光纖網路建置服務協議書（台南公版）",
+    "name": "社區光纖網路建置服務協議書(台南公版)",
     "link": "https://docs.google.com/document/d/10ZUm3AmYlrMTaQ2-HWKgR8tT2PKdIxJH/export?format=docx",
-    "type": "download"
+    "type": "download",
+    "fileType": ".DOCX"
+
   },
-    {
+  {
     "id": 3,
-    "name": "社區光纖網路建置服務協議書（台中公版）",
+    "name": "社區光纖網路建置服務協議書(台中公版)",
     "link": "https://docs.google.com/document/d/18BoTdAEzQ81_0X3nJ_-hLZ5JX2oLqnOH/export?format=docx",
-    "type": "download"
+    "type": "download",
+    "fileType": ".DOCX"
+  },
+  {
+    "id": 4,
+    "name": "社區公設Wi-Fi熱點建置服務協議書(公版)",
+    "link": "https://docs.google.com/document/d/16DblwgnD75bK4YI55SJ7wIrOuJRo-9nd/export?format=docx",
+    "type": "download",
+    "fileType": ".DOCX"
+
+  },
+  {
+    "id": 5,
+    "name": "社區數位化轉型服務協議書(高雄公版)",
+    "link": "https://docs.google.com/document/d/1qytBSJGu6SJHEXuF56QIjJ2vDtRJeuyC/export?format=docx",
+    "type": "download",
+    "fileType": ".DOCX"
+  },
+  {
+    "id": 6,
+    "name": "社區數位化轉型服務協議書(台南公版)",
+    "link": "https://docs.google.com/document/d/1hGxEmOHrU1VWFxd6LLHbIjOSPi1rei2K/export?format=docx",
+    "type": "download",
+    "fileType": ".DOCX"
+  },
+  {
+    "id": 7,
+    "name": "社區數位化轉型服務協議書(台中公版)",
+    "link": "https://docs.google.com/document/d/1jXHrusocZumSYpkz2kDXH356PMg6uzFD/export?format=docx",
+    "type": "download",
+    "fileType": ".DOCX"
+  },
+  {
+    "id": 8,
+    "name": "優能家APP介紹_公文格式文字檔",
+    "link": "https://docs.google.com/document/d/174zzjGeYvkzkVKUrL3X8Xaq2LvDxVS7e/export?format=docx",
+    "type": "download",
+    "fileType": ".XLSX"
+  },
+  {
+    "id": 9,
+    "name": "社區數位化轉型服務報價單(公版)",
+    "link": "https://docs.google.com/spreadsheets/d/1BnLWGJivvPSvCW-OATw0nCCj0jXUK1X4/export?format=xlsx",
+    "type": "download",
+    "fileType": ".XLSX"
+  },
+  {
+    "id": 10,
+    "name": "社區設備儀器拆機申請表",
+    "link": "https://docs.google.com/spreadsheets/d/1y6ZknzDWkrDhNxt17GyNXGOtm7oU4HoO/export?format=xlsx",
+    "type": "download",
+    "fileType": ".XLSX"
   },
     {
-    "id": 4,
-    "name": "社區公設Wi-Fi熱點建置服務協議書（公版）",
-    "link": "https://docs.google.com/document/d/16DblwgnD75bK4YI55SJ7wIrOuJRo-9nd/export?format=docx",
-    "type": "download"
+    "id": 11,
+    "name": "優能家智能社區系統 「社區帳號開立資料表」",
+    "link": "https://drive.google.com/uc?export=download&id=1d8xK3NQsq3iXrhz_Hsga_goT2x0yawcY",
+    "type": "download",
+    "fileType": ".PDF"
   }
 ]

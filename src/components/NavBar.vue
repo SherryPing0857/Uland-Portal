@@ -9,7 +9,7 @@ const navItems = [
   { name: "公告資訊", path: "/news" },
   { name: "部門指南", path: "/faq" },
   { name: "教育訓練", path: "/training" },
-  { name: "各項表單", path: "/forms" },
+  { name: "各項資料", path: "/forms" },
   { name: "公司介紹", path: "/intro" },
   { name: "員工回饋", path: "/feedback" },
   { name: "我的帳戶", path: "/setting" },
@@ -36,8 +36,8 @@ watch(() => route.path, () => {
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-primary py-3">
     <div class="container">
-      <RouterLink to="/news" class="navbar-brand text-white">捷一資訊&優能家 員工知識庫</RouterLink>
-
+      <RouterLink to="/news" class="navbar-brand text-white">優能家&捷一資訊 員工知識庫</RouterLink>
+ 
       <!-- 漢堡按鈕 -->
       <button
         class="navbar-toggler"
